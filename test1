@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smart Monitor</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"></script>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="header">
+  <div class="left">
+    <span class="logo">🌿 Smart Monitor</span>
+    <span class="status online">● Online</span>
+  </div>
+  <button id="muteBtn" class="mute-btn">🔇 เสียงปิด</button>
+</header>
+
+<!-- ===== Menu ===== -->
+<nav class="menu">
+  <a class="active">Dashboard</a>
+  <a>สถิติ</a>
+  <a>ตั้งค่า</a>
+  <a>อุปกรณ์</a>
+</nav>
+
+<!-- ===== Main ===== -->
+<main class="container">
+
+  <!-- Overall Status -->
+  <div class="overall normal" id="overallStatus">สถานะปกติ</div>
+
+  <!-- Cards -->
+  <div class="cards">
+
+    <!-- Soil Card -->
+    <div class="card">
+      <h3>💧 ความชื้นในดิน</h3>
+      <div class="gauge">
+        <span id="soilValue">0</span>
+        <small>/1024</small>
+      </div>
+      <p>Threshold: <span id="soilThreshold">600</span></p>
+    </div>
+
+    <!-- PIR Card -->
+    <div class="card">
+      <h3>👁 ตรวจจับความเคลื่อนไหว</h3>
+      <div id="pirStatus" class="pir none">ไม่มีการเคลื่อนไหว</div>
+    </div>
+
+  </div>
+
+  <!-- Sound Control -->
+  <div class="sound-card">
+    <div>
+      <h3>🔊 ควบคุมเสียงแจ้งเตือน</h3>
+      <p id="muteText">เสียงเปิดอยู่</p>
+    </div>
+    <label class="switch">
+      <input type="checkbox" id="muteSwitch">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+</main>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
